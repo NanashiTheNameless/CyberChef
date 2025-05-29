@@ -47,7 +47,7 @@ jobs:
 
     - name: Image Metadata
       id: image-metadata
-      uses: docker/metadata-action@v2.13
+      uses: docker/metadata-action@v5.7.0
       with:
         images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
         tags: |
