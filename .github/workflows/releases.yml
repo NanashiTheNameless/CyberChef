@@ -47,7 +47,7 @@ jobs:
 
     - name: Image Metadata
       id: image-metadata
-      uses: docker/metadata-action@418e4b98bf2841bd337d0b24fe63cb36dc8afa55
+      uses: docker/metadata-action@v2.13
       with:
         images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
         tags: |
@@ -70,14 +70,14 @@ jobs:
         extra-args: |
           --ulimit nofile=10000
 
-    - name: Publish to GHCR
-      uses: redhat-actions/push-to-registry@5ed88d269cf581ea9ef6dd6806d01562096bee9c
-      with:
-        image: ${{ steps.build-image.outputs.image }}
-        tags: ${{ steps.build-image.outputs.tags }}
-        registry: ${{ env.REGISTRY }}
-        username: ${{ env.REGISTRY_USER }}
-        password: ${{ env.REGISTRY_PASSWORD }}
+#     - name: Publish to GHCR
+#       uses: redhat-actions/push-to-registry@5ed88d269cf581ea9ef6dd6806d01562096bee9c
+#       with:
+#         image: ${{ steps.build-image.outputs.image }}
+#         tags: ${{ steps.build-image.outputs.tags }}
+#         registry: ${{ env.REGISTRY }}
+#         username: ${{ env.REGISTRY_USER }}
+#         password: ${{ env.REGISTRY_PASSWORD }}
 
     - name: Upload Release Assets
       id: upload-release-assets
@@ -90,7 +90,7 @@ jobs:
         file_glob: true
         body: "See the [CHANGELOG](https://github.com/gchq/CyberChef/blob/master/CHANGELOG.md) and [commit messages](https://github.com/gchq/CyberChef/commits/master) for details."
 
-    - name: Publish to NPM
-      uses: JS-DevTools/npm-publish@v1
-      with:
-        token: ${{ secrets.NPM_TOKEN }}
+#     - name: Publish to NPM
+#       uses: JS-DevTools/npm-publish@66e0e1d9494ba904d4d608ae77fc5f4fe9bcc038
+#       with:
+#         token: ${{ secrets.NPM_TOKEN }}
