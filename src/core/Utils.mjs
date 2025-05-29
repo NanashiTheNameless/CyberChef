@@ -1022,6 +1022,7 @@ class Utils {
         while ((m = recipeRegex.exec(recipe))) {
             // Translate strings in args back to double-quotes
             args = m[2] // lgtm [js/incomplete-sanitization]
+                .replace(/\\/g, "\\\\") // Escape backslashes
                 .replace(/"/g, '\\"') // Escape double quotes
                 .replace(/(^|,|{|:)'/g, '$1"') // Replace opening ' with "
                 .replace(/([^\\]|(?:\\\\)+)'(,|:|}|$)/g, '$1"$2') // Replace closing ' with "
