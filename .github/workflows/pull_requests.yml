@@ -9,10 +9,10 @@ jobs:
   main:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@85e6279cec87321a52edac9c87bce653a07cf6c2
 
     - name: Set node version
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
       with:
         node-version: '18.x'
 
@@ -37,7 +37,7 @@ jobs:
     - name: Production Image Build
       if: success()
       id: build-image
-      uses: redhat-actions/buildah-build@v2
+      uses: redhat-actions/buildah-build@7a95fa7ee0f02d552a32753e7414641a04307056
       with:
         # Not being uploaded to any registry, use a simple name to allow Buildah to build correctly.
         image: cyberchef

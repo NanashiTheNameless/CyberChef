@@ -27,7 +27,7 @@ RUN npm run build
 #########################################
 # Package static build files into nginx #
 #########################################
-# We are using Github Actions: redhat-actions/buildah-build@v2 which needs manual selection of arch in base image
+# We are using Github Actions: redhat-actions/buildah-build@7a95fa7ee0f02d552a32753e7414641a04307056 which needs manual selection of arch in base image
 # Remove TARGETARCH if docker buildx is supported in the CI release as --platform=$TARGETPLATFORM will be automatically set
 ARG TARGETPLATFORM
 FROM --platform=${TARGETPLATFORM} nginx:stable-alpine AS cyberchef
