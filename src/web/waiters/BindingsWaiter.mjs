@@ -297,7 +297,7 @@ class BindingsWaiter {
         else
             helpTitle = "<span class='text-muted'>Help topic</span>";
 
-        document.querySelector("#help-modal .modal-body").innerHTML = helpText;
+        document.querySelector("#help-modal .modal-body").textContent = helpText;
         document.querySelector("#help-modal #help-title").textContent = helpTitle;
 
         $("#help-modal").modal();
